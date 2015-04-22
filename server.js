@@ -63,3 +63,12 @@ boxRoute.get(function(req, res) {
     res.json(box);
   });
 });
+
+// DELETE /:id
+boxRoute.delete(function(req, res) {
+  Box.findOneAndRemove({ id: req.params.id }, function(err) {
+    if (err)
+      res.send(err);
+    res.json({ message: "Box removed!" });
+  });
+});
