@@ -1,0 +1,6 @@
+{
+  "name": "boxes",
+  "main": "server.js",
+  "dependencies": {
+  }
+}
