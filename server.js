@@ -22,3 +22,23 @@ router.get("/", function(req, res) {
 
 app.listen(port);
 console.log("Listening on port " + port);
+
+
+// Index route
+var boxesRoute = router.route("/boxes")
+
+boxesRoute.post(function(req, res) {
+  var box = new Box();
+
+  box.id = req.body.id;
+  box.createdAt = req.body.createdAt;
+  box.customerName = req.body.customerName;
+  box.address = req.body.address;
+  box.items = req.body.items;
+
+  box.save(function(err) {
+    if (err)
+      res.send(err);
+    res.json({ message: "Added Box!", data: box });
+  })
+});
