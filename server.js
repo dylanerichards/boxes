@@ -52,3 +52,14 @@ boxesRoute.get(function(req, res) {
     res.json(boxes);
   });
 });
+
+// GET /:id
+var boxRoute = router.route("/boxes/:id");
+
+boxRoute.get(function(req, res) {
+  Box.findOne({ id: req.params.id }, function(err, box) {
+    if (err)
+      res.send(err);
+    res.json(box);
+  });
+});
