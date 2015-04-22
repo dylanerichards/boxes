@@ -27,6 +27,7 @@ console.log("Listening on port " + port);
 // Index route
 var boxesRoute = router.route("/boxes")
 
+// POST
 boxesRoute.post(function(req, res) {
   var box = new Box();
 
@@ -41,4 +42,13 @@ boxesRoute.post(function(req, res) {
       res.send(err);
     res.json({ message: "Added Box!", data: box });
   })
+});
+
+// GET index
+boxesRoute.get(function(req, res) {
+  Box.find(function(err, boxes) {
+    if (err)
+      res.send(err);
+    res.json(boxes);
+  });
 });
