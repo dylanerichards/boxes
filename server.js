@@ -76,11 +76,26 @@ boxRoute.delete(function(req, res) {
 
 // Find route
 var findRoute = router.route("/find")
+var boxCollection = {};
 
 findRoute.get(function(req, res) {
   Box.find(function(err, boxes) {
-    if (err)
-      res.send(err);
-    res.json(boxes);
+    boxCollection.byItemCount = boxes;
+
+    Box.find(function (error, coll2) {
+      boxCollection.byCreatedAt = coll2;
+
+      Box.find(function (error, coll3) {
+        boxCollection.byAddress = coll3;
+
+        res.json(boxCollection);
+      }).sort("address");
+    }).sort("-createdAt");
   }).sort("-itemCount");
 });
+
+// findRoute.get(function(req, res) {
+//   Box.find(function(err, boxes) {
+//     res.json(boxes)
+//   }).sort("-itemCount");
+// });
