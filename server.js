@@ -93,9 +93,3 @@ findRoute.get(function(req, res) {
     }).sort("-createdAt");
   }).sort("-itemCount");
 });
-
-// findRoute.get(function(req, res) {
-//   Box.find(function(err, boxes) {
-//     res.json(boxes)
-//   }).sort("-itemCount");
-// });
