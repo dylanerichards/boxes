@@ -80,10 +80,10 @@ var boxCollection = {};
 
 findRoute.get(function(req, res) {
   Box.find(function(err, boxes) {
-    boxCollection.byItemCount = boxes;
+    boxCollection.byWeight = boxes;
 
     Box.find(function (error, coll2) {
-      boxCollection.byCreatedAt = coll2;
+      boxCollection.byDate = coll2;
 
       Box.find(function (error, coll3) {
         boxCollection.byAddress = coll3;
