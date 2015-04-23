@@ -73,5 +73,3 @@ boxRoute.delete(function(req, res) {
     res.json({ message: "Box removed!" });
   });
 });
-
-
