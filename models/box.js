@@ -6,6 +6,7 @@ var BoxSchema = new mongoose.Schema({
   customerName: String,
   address: String,
   items: String,
+  itemCount: Number
 });
 
 BoxSchema.plugin(timestamps);

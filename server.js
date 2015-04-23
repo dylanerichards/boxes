@@ -36,6 +36,7 @@ boxesRoute.post(function(req, res) {
   box.customerName = req.body.customerName;
   box.address = req.body.address;
   box.items = req.body.items;
+  box.itemCount = req.body.items.split("/").length;
 
   box.save(function(err) {
     if (err)
@@ -72,3 +73,5 @@ boxRoute.delete(function(req, res) {
     res.json({ message: "Box removed!" });
   });
 });
+
+
