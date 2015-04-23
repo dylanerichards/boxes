@@ -73,3 +73,14 @@ boxRoute.delete(function(req, res) {
     res.json({ message: "Box removed!" });
   });
 });
+
+// Find route
+var findRoute = router.route("/find")
+
+findRoute.get(function(req, res) {
+  Box.find(function(err, boxes) {
+    if (err)
+      res.send(err);
+    res.json(boxes);
+  }).sort("-itemCount");
+});
