@@ -2,6 +2,7 @@
 ## A RESTful API
 
 ### Run instructions
+[Video of usage](https://www.dropbox.com/s/wc9p7ytegansoau/boxes.mp4?dl=0)
 
 - Clone the repository and `cd` into it
 - Make sure MongoDB is running and accepting connections (`mongod`)
